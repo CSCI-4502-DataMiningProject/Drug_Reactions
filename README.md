@@ -18,9 +18,9 @@ There are 7 tables:
 - demo - 3,088,728 records
 - drug - 11,312,890 records
 
-In the db/ directory in this repository, there is a gzipped database you can use to recreate the database on your own machine. This database has not yet undergone data cleaning or any type of data manipulation. The gzipped file is 448 MB.
+We have created a gzipped database you can use to recreate the database on your own machine. This database has not yet undergone data cleaning, so there may be duplicate records. The gzipped file is 448 MB.
 
-#### Steps to Restore
+#### Steps to create the DB
 1. Install Postgresql if you do not already have it.
 
 2. Create a database named `faers` by running the following on the command line:
