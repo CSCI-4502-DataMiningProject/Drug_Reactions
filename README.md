@@ -10,13 +10,13 @@ We have downloaded all the files for Q1 2016 through Q1 2018, and loaded them in
 
 There are 7 tables:
 
-- indi - 7,901,564 records
-- outc - 2,122,914 records
-- reac - 9,007,602 records
-- rpsr - 113,657 records
-- ther - 4,200,330 records
-- demo - 3,088,728 records
-- drug - 11,312,890 records
+- indi (indications) - 7,901,564 records
+- outc (outcomes) - 2,122,914 records
+- reac (reactions/adverse events) - 9,007,602 records
+- rpsr (report sources) - 113,657 records
+- ther (drug therapy start/end dates) - 4,200,330 records
+- demo (patient demographic information) - 3,088,728 records
+- drug (drug/biologic information) - 11,312,890 records
 
 We have created a gzipped database you can use to recreate the database on your own machine. This database has not yet undergone data cleaning, so there may be duplicate records. The gzipped file is 448 MB.
 
