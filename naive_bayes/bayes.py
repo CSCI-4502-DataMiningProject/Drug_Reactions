@@ -1,6 +1,5 @@
 import pandas as pd
 import pdb
-from sklearn.metrics import confusion_matrix
 import numpy as np
 
 from sklearn.model_selection import train_test_split
@@ -8,7 +7,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 
 # Read in Data
-df = pd.read_csv('FINAL_distinct_demo_reac_outc.csv', sep=',')
+df = pd.read_csv('SAMPLE_demo_reac_outc.csv', sep=',')
 
 # Clean and Preprocess
 df['life_threatening_outcome'] = df.outc_cod.map({'LT': 1, 'DE': 1, 'OT': 0, 'HO': 0, 'RI': 0, 'DS': 0 , 'CA': 0 })
