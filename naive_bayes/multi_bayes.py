@@ -3,11 +3,11 @@ import pdb
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 from sklearn import metrics
 
 # Read in Data
-df = pd.read_csv('SAMPLE_demo_reac_outc.csv', sep=',')
+df = pd.read_csv('FINAL_demo_reac_outc.csv', sep=',')
 
 # Clean and Preprocess
 df['life_threatening_outcome'] = df.outc_cod.map({'LT': 1, 'DE': 1, 'OT': 0, 'HO': 0, 'RI': 0, 'DS': 0 , 'CA': 0 })
@@ -50,6 +50,7 @@ df = df[[
     "wt",
     "wt_cod",
     "binned_weight",
+    "weight_cleaned",
     "binned_age",
     "country_cleaned",
     "life_threatening_outcome"
@@ -61,8 +62,8 @@ df = df.reset_index()
 # Prepare model
 used_features =[
     "demo_gender",
-    "binned_age",
-    "binned_weight",
+    "age",
+    "weight_cleaned",
     "country_cleaned"
 ]
 
@@ -73,7 +74,9 @@ Y = np.array(df["life_threatening_outcome"].values)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=1)
 
 # Initialize and train model
-mnb = MultinomialNB()
+mnb = GaussianNB()
+# mnb = MultinomialNB()
+# mnb = BernoulliNB()
 mnb.fit(X_train, Y_train)
 
 Y_pred = mnb.predict(X_test)
@@ -84,8 +87,11 @@ print(df.groupby('demo_gender').size())
 
 print("Multinomial Naive Bayes model accuracy(in %):", metrics.accuracy_score(Y_test, Y_pred)*100)
 
-print("Given male, 60, 70kg, US, probability of a serious outcome:")
-male = [1, 60, 70, 14]
-prob = mnb.predict_proba([male])
-print(prob)
-print("Prob of serious outcome (in %):", prob[0][1]*100)
+print("Given female, 30, 80kg probability of a serious outcome:")
+weight = 80
+age = 60
+male = 1
+country_int_code = 1
+input = [male, age, weight, country_int_code]
+prob1 = mnb.predict_proba([input])
+print("Prob of US serious outcome (in %):", prob1[0][1]*100)
