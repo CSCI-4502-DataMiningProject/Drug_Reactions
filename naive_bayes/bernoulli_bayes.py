@@ -1,15 +1,15 @@
 import pandas as pd
-import pdb
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
 from sklearn import metrics
 
 # Read in Data
-df = pd.read_csv('FINAL_demo_reac_outc.csv', sep=',')
+df = pd.read_csv('SAMPLE_demo_reac_outc.csv', sep=',')
 
 # Clean and Preprocess
+# Code values as binary options
 df['life_threatening_outcome'] = df.outc_cod.map({
     'LT': 1,
     'DE': 1,
@@ -20,14 +20,11 @@ df['life_threatening_outcome'] = df.outc_cod.map({
     'CA': 0
 })
 
-df["in_US"] = df.occr_country.map({
-    'US': 1
-})
-
+df["in_US"] = df.occr_country.map({'US': 1})
 df['in_US'] = df['in_US'].fillna(0)
 
 df = df[pd.notnull(df['sex'])]
-df['demo_gender'] = np.where(df["sex"] == "M",1,0)
+df['demo_gender'] = np.where(df["sex"] == "M", 1, 0)
 
 df = df[[
     "demo_gender",
@@ -44,31 +41,32 @@ features =[
     "in_US"
 ]
 
-X = df[features].values
-Y = np.array(df["life_threatening_outcome"].values)
+features = df[features].values
+labels = np.array(df["life_threatening_outcome"].values)
 
-# Split Data into training sets
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=1)
+# Split into training and test sets
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.4, random_state=1)
 
 mnb = BernoulliNB()
-mnb.fit(X_train, Y_train)
+mnb.fit(features_train, labels_train)
 
-Y_pred = mnb.predict(X_test)
+labels_pred = mnb.predict(features_test)
 
-# Print Report
-print("Multinomial Naive Bayes model accuracy(in %):", metrics.accuracy_score(Y_test, Y_pred)*100)
+# Report
+print("BernoulliNB model accuracy:", metrics.accuracy_score(labels_test, labels_pred)*100)
 
-us_male = [1,1]
-non_us_male = [1,0]
-us_female = [0,1]
+# Example profiles
+us_male       = [1,1]
+non_us_male   = [1,0]
+us_female     = [0,1]
 non_us_female = [0,0]
 
-prob1 = mnb.predict_proba([us_male])
-prob2 = mnb.predict_proba([non_us_male])
-prob3 = mnb.predict_proba([us_female])
-prob4 = mnb.predict_proba([non_us_female])
+us_male_prob = mnb.predict_proba([us_male])
+non_us_male_prob = mnb.predict_proba([non_us_male])
+us_female_prob = mnb.predict_proba([us_female])
+non_us_female_prob = mnb.predict_proba([non_us_female])
 
-print("Prob of a MALE US serious outcome (in %):", prob1[0][1]*100)
-print("Prob of MALE NON US serious outcome (in %):", prob2[0][1]*100)
-print("Prob of FEMALE US serious outcome (in %):", prob3[0][1]*100)
-print("Prob of FEMALE NON US serious outcome (in %):", prob4[0][1]*100)
+print("Prob of a MALE US serious outcome (in %):", us_male_prob[0][1]*100)
+print("Prob of MALE NON US serious outcome (in %):", non_us_male_prob[0][1]*100)
+print("Prob of FEMALE US serious outcome (in %):", us_female_prob[0][1]*100)
+print("Prob of FEMALE NON US serious outcome (in %):", non_us_female_prob[0][1]*100)
