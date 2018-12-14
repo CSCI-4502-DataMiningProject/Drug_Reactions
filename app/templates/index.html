@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Explore the FAERS DB</h1>
+
+    <h1>Calculate Probabilities</h1>
+    <form action="/calculate" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.weight.label }}<br>
+            {{ form.weight(size=32) }}
+            {% for error in form.weight.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.age.label }}<br>
+            {{ form.age(size=32) }}
+            {% for error in form.age.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.country.label }}<br>
+            {{ form.country(size=1) }}
+            {% for error in form.country.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.is_male() }} {{ form.is_male.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    {% if calculation or calculation == 0: %}
+      <div>
+        <p>
+        Given:
+        <ul>
+          <li>male = {{ male }}</li>
+          <li>age = {{ age }}</li>
+          <li>weight = {{ weight }}</li>
+          <li>country = {{ country }}</li>
+        </ul>
+        <p>The probability of a serious outcome is: </p>
+        {{ calculation }}
+      </div>
+    {% endif %}
+    </div>
+{% endblock %}
