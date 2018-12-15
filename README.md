@@ -19,7 +19,7 @@ We sought to answer the following questions in our research:
 
 In the course of our research, we found specific patient profiles that had a higher predicted probability of having a life-threatening reaction after taking a drug. Older men outside of the US tended to have a higher likelihood of serious, life-threatening adverse reactions. Of the profiles we examined, older Italian men were the most likely to experience life threatening reactions, while younger women were the least likely, with a predicted probability of life threatening reactions at around half of their elderly male counterparts'.
 
-We also found that among all adverse reactions, the most common is that drug used for treatment being ineffective. The most common patient demographic paired with drug reactions is the drug being ineffective among females as well as drugs being ineffective among individuals in the US. Lastly, the most frequent combination of drug and reaction found together are the drug Lunesta being ineffective. The most common pair of reactions is drug ineffectiveness and insomnia.
+We also found that among all adverse reactions, the most common is that drug used for treatment being ineffective. The most common patient demographic paired with drug reactions are the drug ineffectiveness among females as well as drug ineffectiveness among individuals in the US. Lastly, the most frequent combination of drug and reaction found together is drug ineffectiveness and the drug Lunesta. The most common pair of reactions is drug ineffectiveness and insomnia.
 
 ### Applications
 
