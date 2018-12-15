@@ -1,6 +1,40 @@
 # Drug_Reactions
 This repository is for data and code related to group2's CSCI 4502 data mining project for fall of 2018.
 
+## Project Code and Description
+### Project Title
+Predicting Adverse Drug Reactions Based on Patient Demographics
+
+### Team Members
+Annie Lydens and Anthony Olvera
+
+### Description of the Project
+This project analyzed the FDA FAERS data set, specifically examining links between various demographic attributes or drug characteristics and subsequent adverse outcomes. We set out to find interesting correlations and relationships between demographic characteristics and their likelihood of having an adverse drug reaction. We also sought to resolve whether there are pairs of frequently occurring sets of specific patient demographic attributes. In addition, we also paired sets of common multiple reactions with certain medications which tend to occur together in the treatment process.
+
+### Summary of Questions Sought & Answers
+We sought to answer the following questions in our research:
+- Given a patient’s demographic information (age, sex, weight, reported location), can we predict the likelihood of a significant medical outcome?
+- What are the most common set of patient characteristics and adverse drug reactions?
+- Do certain medical reactions occur together frequently? If so, what are those reactions?  
+
+In the course of our research, we found specific patient profiles that had a higher predicted probability of having a life-threatening reaction after taking a drug. Older men outside of the US tended to have a higher likelihood of serious, life-threatening adverse reactions. Of the profiles we examined, older Italian men were the most likely to experience life threatening reactions, while younger women were the least likely, with a predicted probability of life threatening reactions at around half of their elderly male counterparts'.
+
+We also found that among all adverse reactions, the most common is that drug used for treatment being ineffective. The most common patient demographic paired with drug reactions is the drug being ineffective among females as well as drugs being ineffective among individuals in the US. Lastly, the most frequent combination of drug and reaction found together are the drug Lunesta being ineffective. The most common pair of reactions is drug ineffectiveness and insomnia.
+
+### Applications
+
+Our research could help reduce adverse drug reactions by bringing awareness to common adverse reactions that occur together. Knowing common pairs of reactions from specific drugs could help physicians and other medical professionals prepare patients for treatment, as well as make more educated treatment decisions.
+
+Additionally, this research could be beneficial for medical staff and pharmaceutical companies in allowing them to develop a more nuanced understanding of previously unidentified demographic factors that may contribute to adverse reactions in patients. It could also help identify groups of patients who may have previously been considered low-risk for a life-threatening outcome, and correctly reclassify them as higher risk.
+
+An interesting software application of this research could be to build a web application that allows medical professionals to either enter patient demographic characteristics and view the patient's predicted probability of a life-threatening outcome, or input drugs or adverse reactions and see common co-occurring reactions.
+
+### Final Paper
+Todo: Link Paper []
+
+### Video Presentation
+Todo: Link Video
+
 # Database Information
 
 The FAERS database files are located here:
