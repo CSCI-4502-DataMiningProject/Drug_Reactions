@@ -30,7 +30,7 @@ Additionally, this research could be beneficial for medical staff and pharmaceut
 An interesting software application of this research could be to build a web application that allows medical professionals to either enter patient demographic characteristics and view the patient's predicted probability of a life-threatening outcome, or input drugs or adverse reactions and see common co-occurring reactions.
 
 ### Final Paper
-Todo: Link Paper []
+[Final Paper is available here](/02_DrugReactionPrediction_Part4.pdf)
 
 ### Video Presentation
 Todo: Link Video
