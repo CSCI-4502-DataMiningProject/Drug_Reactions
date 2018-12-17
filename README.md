@@ -33,7 +33,7 @@ An interesting software application of this research could be to build a web app
 [Final Paper is available here](/02_DrugReactionPrediction_Part4.pdf)
 
 ### Video Presentation
-Todo: Link Video
+[Video is available here](/02_DrugReactionPrediction_Part6_Video.mp4)
 
 # Database Information
 
